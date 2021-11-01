@@ -651,10 +651,10 @@ Under the hood `request_to` simply call [#visit](https://www.rubydoc.info/github
 
 ```ruby
 def request_to(handler, url:, data: {})
-  request_data = { url: url, data: data }
+  options = { url: url, data: data }
 
   browser.visit(url)
-  public_send(handler, browser.current_response, request_data)
+  public_send(handler, browser.current_response(response_type), **request_data)
 end
 ```
 </details><br>
